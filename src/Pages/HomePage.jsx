@@ -5,13 +5,36 @@
 // Shopping , nanti kaya dropdown juga=> Beli Manga, merch, figurine
 // Nanti tambahi fitur anime atau manga nya keluar hari apa aja
 
-import React from "react";
+import React, { useState } from "react";
+import { Box, Button } from "@mui/material";
 import Header from "../Components/Header";
 
 const HomePage = () => {
+  const [toggleWidth, setToggleWidth] = useState(false);
+
+  const handleToggleSize = () => {
+    setToggleWidth(!toggleWidth);
+  };
+
   return (
     <>
-    <Header/>
+      <Header handleToggleSize={handleToggleSize} />
+      <Box display="flex">
+        <Box
+          sx={{
+            width: toggleWidth ? "13%" : "4%",
+            height: "100px",
+            bgcolor: "#ff4000",
+          }}
+        />
+        <Box
+          sx={{
+            width: toggleWidth ? "calc(96% - 10px)" : "calc(100% - 10px)",
+            height: "100px",
+            bgcolor: "#2196f3",
+          }}
+        />
+      </Box>
     </>
   );
 };

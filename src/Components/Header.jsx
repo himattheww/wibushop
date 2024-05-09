@@ -4,48 +4,37 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  Menu,
-  MenuItem,
   InputAdornment,
   TextField,
   Button,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import ProfileIcon from "@mui/icons-material/AccountCircle";
+import SearchIcon from "@mui/icons-material/Search";
 import HistoryIcon from "@mui/icons-material/History";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
 import logoWibushop from "../Assets/Logo/logo2.webp";
 import { toast } from "react-hot-toast";
 
-const Header = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+const Header = ({ handleToggleSize }) => {
   const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
 
   const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleProfileClick = () => {
-    console.log("Profile clicked!");
-    handleMenuClose();
-  };
-
-  const handleDownloadClick = () => {
-    toast.success("Still on development"); // Menampilkan pesan toast saat tombol di klik
-  };
-
-  const handleAppMenuOpen = (event) => {
     setMenuAnchorEl(event.currentTarget);
   };
 
-  const handleAppMenuClose = () => {
+  const handleMenuClose = () => {
     setMenuAnchorEl(null);
+  };
+  
+  const handleMenuClick = () => {
+    handleToggleSize(); // Memanggil fungsi toggle size dari props
+  };
+
+  const handleDownloadClick = () => {
+    toast.success("Still on development");
   };
 
   return (
@@ -56,10 +45,10 @@ const Header = () => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center" }}>
-          {/* Ikon Aplikasi */}
+          {/* Ikon Menu */}
           <IconButton
             sx={{ color: "#fff", marginRight: "16px" }}
-            onClick={handleAppMenuOpen}
+            onClick={handleMenuClick}
           >
             <MenuIcon />
           </IconButton>
@@ -112,15 +101,9 @@ const Header = () => {
             ),
           }}
         />
-
         {/* Tombol History */}
         <IconButton sx={{ color: "#fff" }}>
           <HistoryIcon />
-        </IconButton>
-
-        {/* Tombol Bookmark */}
-        <IconButton sx={{ color: "#fff" }}>
-          <BookmarkIcon />
         </IconButton>
 
         {/* Tombol Unduh Aplikasi */}
@@ -149,13 +132,12 @@ const Header = () => {
         </IconButton>
         <Menu
           id="profile-menu"
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
+          anchorEl={menuAnchorEl}
+          open={Boolean(menuAnchorEl)}
           onClose={handleMenuClose}
         >
-          <MenuItem onClick={handleProfileClick}>Profil</MenuItem>
-          <MenuItem onClick={handleMenuClose}>Pengaturan</MenuItem>
-          <MenuItem onClick={handleMenuClose}>Keluar</MenuItem>
+          <MenuItem onClick={handleMenuClose}>Profile Saya</MenuItem>
+          <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
         </Menu>
       </Toolbar>
     </AppBar>

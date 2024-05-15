@@ -3,38 +3,62 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  IconButton,
-  InputAdornment,
-  TextField,
   Button,
+  IconButton,
+  InputBase,
   Menu,
   MenuItem,
+  Link,
+  Box,
 } from "@mui/material";
-import DownloadIcon from "@mui/icons-material/Download";
-import MenuIcon from "@mui/icons-material/Menu";
-import ProfileIcon from "@mui/icons-material/AccountCircle";
-import SearchIcon from "@mui/icons-material/Search";
-import HistoryIcon from "@mui/icons-material/History";
-import logoWibushop from "../Assets/Logo/logo2.webp";
-import { toast } from "react-hot-toast";
+import {
+  Search as SearchIcon,
+  AccountCircle,
+  Menu as MenuIcon,
+} from "@mui/icons-material";
+import Swal from "sweetalert2"; // Impor SweetAlert2
+import logoWibushop from "../Assets/Logo/logo2.webp"; // Ganti dengan path gambar yang sesuai
 
 const Header = ({ handleToggleSize }) => {
-  const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [shoppingAnchorEl, setShoppingAnchorEl] = React.useState(null);
 
   const handleMenuOpen = (event) => {
-    setMenuAnchorEl(event.currentTarget);
+    setAnchorEl(event.currentTarget);
   };
 
   const handleMenuClose = () => {
-    setMenuAnchorEl(null);
+    setAnchorEl(null);
   };
-  
+
   const handleMenuClick = () => {
     handleToggleSize(); // Memanggil fungsi toggle size dari props
   };
 
+  const handleShoppingMenuOpen = (event) => {
+    setShoppingAnchorEl(event.currentTarget);
+  };
+
+  const handleShoppingMenuClose = () => {
+    setShoppingAnchorEl(null);
+  };
+
   const handleDownloadClick = () => {
-    toast.success("Still on development");
+    Swal.fire({
+      title: 'Still on development',
+      text: 'Please wait for the next update',
+      icon: 'info',
+      confirmButtonText: 'OK',
+      background: '#333',
+      color: '#fff',
+      confirmButtonColor: '#ff4081',
+      customClass: {
+        popup: 'swal-popup',
+        title: 'swal-title',
+        content: 'swal-content',
+        confirmButton: 'swal-confirm-button',
+      },
+    });
   };
 
   return (
@@ -43,102 +67,154 @@ const Header = ({ handleToggleSize }) => {
       sx={{ bgcolor: "#333", borderBottom: "2px solid #ff4081" }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        {/* Logo */}
         <div style={{ display: "flex", alignItems: "center" }}>
-          {/* Ikon Menu */}
-          <IconButton
-            sx={{ color: "#fff", marginRight: "16px" }}
-            onClick={handleMenuClick}
-          >
+          <IconButton sx={{ color: "#fff" }} onClick={handleMenuClick}>
             <MenuIcon />
           </IconButton>
-
-          {/* Logo */}
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ display: "flex", alignItems: "center" }}
-          >
+          <Link href="/home" underline="none">
             <img
               src={logoWibushop}
               alt="Logo"
-              style={{
-                height: "40px",
-                marginRight: "16px",
-                cursor: "pointer",
-                transition: "transform 0.2s",
-                "&:hover": { transform: "scale(1.05)" },
-              }}
+              style={{ height: "40px", marginRight: "16px", cursor: "pointer" }}
             />
+          </Link>
+          <Typography
+            variant="h6"
+            sx={{ color: "#ff4081", fontWeight: "bold" }}
+          >
+            Berwibuwa
+          </Typography>
+          <Box sx={{ display: "flex", ml: 2 }}>
+            <Link href="/manga" underline="none">
+              <Typography variant="h6" sx={{ color: "#ff4081", ml: 2 }}>
+                Daftar Manga
+              </Typography>
+            </Link>
+            <Link href="/anime" underline="none">
+              <Typography variant="h6" sx={{ color: "#ff4081", ml: 2 }}>
+                Daftar Anime
+              </Typography>
+            </Link>
             <Typography
               variant="h6"
-              sx={{ color: "#ff4081", fontWeight: "bold" }}
+              sx={{ color: "#ff4081", ml: 2, cursor: "pointer" }}
+              onClick={handleShoppingMenuOpen}
             >
-              Berwibuwa
+              Shopping
             </Typography>
-          </Typography>
+            <Menu
+              id="shopping-menu"
+              anchorEl={shoppingAnchorEl}
+              open={Boolean(shoppingAnchorEl)}
+              onClose={handleShoppingMenuClose}
+              PaperProps={{
+                style: {
+                  backgroundColor: "#444",
+                  color: "#fff",
+                  borderRadius: "8px",
+                  minWidth: "150px",
+                },
+              }}
+            >
+              <MenuItem
+                onClick={handleShoppingMenuClose}
+                component={Link}
+                href="/shop/manga"
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "#555",
+                  },
+                }}
+              >
+                Manga
+              </MenuItem>
+              <MenuItem
+                onClick={handleShoppingMenuClose}
+                component={Link}
+                href="/shop/accessories"
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "#555",
+                  },
+                }}
+              >
+                Accessories
+              </MenuItem>
+              <MenuItem
+                onClick={handleShoppingMenuClose}
+                component={Link}
+                href="/shop/fashion"
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "#555",
+                  },
+                }}
+              >
+                Fashion
+              </MenuItem>
+            </Menu>
+          </Box>
         </div>
-
-        {/* Kotak Pencarian */}
-        <TextField
-          variant="outlined"
-          placeholder="Cari Anime/Manga"
-          sx={{
-            color: "#fff",
-            "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-              borderColor: "#fff",
-            },
-            "& .MuiOutlinedInput-input": {
-              paddingTop: "8px",
-              paddingBottom: "8px",
-            },
-          }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon sx={{ color: "#fff" }} />
-              </InputAdornment>
-            ),
-          }}
-        />
-        {/* Tombol History */}
-        <IconButton sx={{ color: "#fff" }}>
-          <HistoryIcon />
-        </IconButton>
-
-        {/* Tombol Unduh Aplikasi */}
-        <Button
-          variant="contained"
-          color="secondary"
-          size="small"
-          sx={{
-            borderRadius: "20px",
-            backgroundColor: "#ff4081",
-            color: "#fff",
-            "&:hover": { backgroundColor: "#ff4081" },
-          }}
-          onClick={handleDownloadClick}
-        >
-          <DownloadIcon sx={{ marginRight: "8px" }} />
-          <Typography variant="body2">Download</Typography>
-        </Button>
-
-        {/* Ikon Profil */}
-        <IconButton
-          sx={{ color: "#fff", "&:hover": { backgroundColor: "transparent" } }}
-          onClick={handleMenuOpen}
-        >
-          <ProfileIcon />
-        </IconButton>
-        <Menu
-          id="profile-menu"
-          anchorEl={menuAnchorEl}
-          open={Boolean(menuAnchorEl)}
-          onClose={handleMenuClose}
-        >
-          <MenuItem onClick={handleMenuClose}>Profile Saya</MenuItem>
-          <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
-        </Menu>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <InputBase
+            placeholder="Cari Anime/Manga"
+            sx={{
+              color: "#fff",
+              backgroundColor: "#555",
+              padding: "0 10px",
+              borderRadius: "4px",
+              marginRight: "16px",
+            }}
+            startAdornment={<SearchIcon sx={{ marginRight: "8px" }} />}
+          />
+          <Button
+            variant="contained"
+            color="secondary"
+            size="small"
+            sx={{ borderRadius: "20px", backgroundColor: "#ff4081" }}
+            onClick={handleDownloadClick} // Tambahkan handler click
+          >
+            DOWNLOAD
+          </Button>
+          <IconButton sx={{ color: "#fff" }} onClick={handleMenuOpen}>
+            <AccountCircle />
+          </IconButton>
+          <Menu
+            id="profile-menu"
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+            PaperProps={{
+              style: {
+                backgroundColor: "#444",
+                color: "#fff",
+                borderRadius: "8px",
+                minWidth: "150px",
+              },
+            }}
+          >
+            <MenuItem
+              onClick={handleMenuClose}
+              sx={{
+                "&:hover": {
+                  backgroundColor: "#555",
+                },
+              }}
+            >
+              Profile Saya
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              sx={{
+                "&:hover": {
+                  backgroundColor: "#555",
+                },
+              }}
+            >
+              Logout
+            </MenuItem>
+          </Menu>
+        </div>
       </Toolbar>
     </AppBar>
   );

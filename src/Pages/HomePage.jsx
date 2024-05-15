@@ -20,6 +20,50 @@ import EmailIcon from "@mui/icons-material/Email";
 import WhatshotIcon from "@mui/icons-material/Whatshot"; // Mengganti VisibilityIcon dengan WhatshotIcon
 
 const HomePage = () => {
+  console.log("Home Page Loaded");
+
+  const mangaData = [
+    {
+      title: "Manga Title 1",
+      author: "Author 1",
+      description: "Description for Manga 1",
+      dayupdate: "Thursday",
+    },
+    {
+      title: "Manga Title 2",
+      author: "Author 2",
+      description: "Description for Manga 2",
+      dayupdate: "Thursday",
+    },
+  ];
+
+  const animeData = [
+    {
+      title: "Anime Title 1",
+      author: "Author 1",
+      description: "Description for Anime 1",
+      dayupdate: "Thursday",
+    },
+    {
+      title: "Anime Title 2",
+      author: "Author 2",
+      description: "Description for Anime 2",
+      dayupdate: "Friday",
+    },
+  ];
+
+  const checkUpdateDay = (dataArray) => {
+    const today = new Date().toLocaleDateString("en-US", { weekday: "long" });
+    const filteredData = dataArray.filter((item) => item.dayupdate === today);
+    return filteredData;
+  };
+
+  const filteredMangaData = checkUpdateDay(mangaData);
+  const filteredAnimeData = checkUpdateDay(animeData);
+
+  console.log("Filtered Manga Data:", filteredMangaData);
+  console.log("Filtered Anime Data:", filteredAnimeData);
+
   const [toggleWidth, setToggleWidth] = useState(false);
 
   const handleToggleSize = () => {
@@ -40,16 +84,6 @@ const HomePage = () => {
       title: "Carousel Image 3",
     },
   ];
-
-  const mangaUpdates = Array.from({ length: 10 }, (_, index) => ({
-    title: `Manga Title ${index + 1}`,
-    description: `Description for Manga ${index + 1}`,
-  }));
-
-  const animeUpdates = Array.from({ length: 10 }, (_, index) => ({
-    title: `Anime Title ${index + 1}`,
-    description: `Description for Anime ${index + 1}`,
-  }));
 
   const mostViewedContent = Array.from({ length: 10 }, (_, index) => ({
     title: `Most Viewed Title ${index + 1}`,
@@ -102,32 +136,38 @@ const HomePage = () => {
                 Pembaharuan Harian Manga
               </Typography>
               <Grid container spacing={2}>
-                {mangaUpdates.map((manga, index) => (
-                  <Grid item xs={6} md={4} key={index}>
-                    <Card
-                      sx={{ "&:hover": { boxShadow: 6, bgcolor: "#e0f7fa" } }}
-                    >
-                      <CardContent>
-                        <Typography
-                          variant="h5"
-                          sx={{
-                            fontSize: "1.25rem",
-                            fontWeight: "bold",
-                            color: "#00796b",
-                          }}
-                        >
-                          {manga.title}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{ mt: 1, color: "#004d40" }}
-                        >
-                          {manga.description}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
+                {filteredMangaData.length > 0 ? (
+                  filteredMangaData.map((manga, index) => (
+                    <Grid item xs={6} md={4} key={index}>
+                      <Card
+                        sx={{ "&:hover": { boxShadow: 6, bgcolor: "#e0f7fa" } }}
+                      >
+                        <CardContent>
+                          <Typography
+                            variant="h5"
+                            sx={{
+                              fontSize: "1.25rem",
+                              fontWeight: "bold",
+                              color: "#00796b",
+                            }}
+                          >
+                            {manga.title}
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{ mt: 1, color: "#004d40" }}
+                          >
+                            {manga.description}
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  ))
+                ) : (
+                  <Typography variant="body1" sx={{ color: "#FFFF" }}>
+                    Tidak ada pembaruan manga hari ini.
+                  </Typography>
+                )}
               </Grid>
             </Box>
 
@@ -140,32 +180,38 @@ const HomePage = () => {
                 Pembaharuan Harian Anime
               </Typography>
               <Grid container spacing={2}>
-                {animeUpdates.map((anime, index) => (
-                  <Grid item xs={6} md={4} key={index}>
-                    <Card
-                      sx={{ "&:hover": { boxShadow: 6, bgcolor: "#ffecb3" } }}
-                    >
-                      <CardContent>
-                        <Typography
-                          variant="h5"
-                          sx={{
-                            fontSize: "1.25rem",
-                            fontWeight: "bold",
-                            color: "#f57c00",
-                          }}
-                        >
-                          {anime.title}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{ mt: 1, color: "#e65100" }}
-                        >
-                          {anime.description}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
+                {filteredAnimeData.length > 0 ? (
+                  filteredAnimeData.map((anime, index) => (
+                    <Grid item xs={6} md={4} key={index}>
+                      <Card
+                        sx={{ "&:hover": { boxShadow: 6, bgcolor: "#ffecb3" } }}
+                      >
+                        <CardContent>
+                          <Typography
+                            variant="h5"
+                            sx={{
+                              fontSize: "1.25rem",
+                              fontWeight: "bold",
+                              color: "#f57c00",
+                            }}
+                          >
+                            {anime.title}
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{ mt: 1, color: "#e65100" }}
+                          >
+                            {anime.description}
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  ))
+                ) : (
+                  <Typography variant="body1" sx={{ color: "#FFFF" }}>
+                    Tidak ada pembaruan anime hari ini.
+                  </Typography>
+                )}
               </Grid>
             </Box>
           </Box>

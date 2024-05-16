@@ -24,31 +24,215 @@ const HomePage = () => {
 
   const mangaData = [
     {
-      title: "Manga Title 1",
-      author: "Author 1",
-      description: "Description for Manga 1",
+      title: "Attack on Titan",
+      author: "Hajime Isayama",
+      description:
+        "Set in a world where humanity is on the brink of extinction due to gigantic humanoid creatures known as Titans, this series follows the story of Eren Yeager and his friends as they fight against these monstrous beings.",
       dayupdate: "Thursday",
+      image: "attack_on_titan.jpg",
     },
     {
-      title: "Manga Title 2",
-      author: "Author 2",
-      description: "Description for Manga 2",
+      title: "Black Butler",
+      author: "Yana Toboso",
+      description:
+        "Follows the story of Ciel Phantomhive, a young nobleman who forms a contract with a demon named Sebastian Michaelis to seek revenge against those who wronged him.",
+      dayupdate: "Monday",
+      image: "black_butler.jpg",
+    },
+    {
+      title: "Black Clover",
+      author: "Yūki Tabata",
+      description:
+        "Set in a world where magic is everything, follows the journey of Asta, a boy born without magic, who dreams of becoming the Wizard King, the strongest mage in the Clover Kingdom.",
+      dayupdate: "Wednesday",
+      image: "black_clover.jpg",
+    },
+    {
+      title: "Detective Conan",
+      author: "Gosho Aoyama",
+      description:
+        "Follows the adventures of Shinichi Kudo, a high school detective who is transformed into a child after being poisoned by a criminal organization, and his quest to solve cases while posing as a young boy named Conan Edogawa.",
+      dayupdate: "Friday",
+      image: "detective_conan.jpg",
+    },
+    {
+      title: "Death Note",
+      author: "Tsugumi Ohba (story) and Takeshi Obata (art)",
+      description:
+        "Follows the story of Light Yagami, a high school student who gains the power to kill anyone whose name he writes in a mysterious notebook, leading to a game of cat and mouse with a brilliant detective known only as L.",
+      dayupdate: "Tuesday",
+      image: "death_note.jpg",
+    },
+    {
+      title: "Dragon Ball",
+      author: "Akira Toriyama",
+      description:
+        "Follows the adventures of Goku as he trains in martial arts and searches for the Dragon Balls, powerful artifacts that can grant any wish.",
+      dayupdate: "Sunday",
+      image: "dragon_ball.jpg",
+    },
+    {
+      title: "Gintama",
+      author: "Hideaki Sorachi",
+      description:
+        "Set in an alternate late-Edo period Japan invaded by aliens, follows the adventures of Gintoki Sakata, a freelance samurai, and his companions as they take on odd jobs to make ends meet.",
+      dayupdate: "Saturday",
+      image: "gintama.jpg",
+    },
+    {
+      title: "Haikyuu!!",
+      author: "Haruichi Furudate",
+      description:
+        "Follows the journey of Shoyo Hinata, a volleyball player with a short stature but a big heart, as he aims to become a top player and lead his team to victory.",
+      dayupdate: "Monday",
+      image: "haikyuu.jpg",
+    },
+    {
+      title: "Fullmetal Alchemist",
+      author: "Hiromu Arakawa",
+      description:
+        "Set in a world where alchemy is practiced, follows the journey of two brothers, Edward and Alphonse Elric, as they search for the Philosopher's Stone to restore their bodies after a failed alchemical experiment.",
+      dayupdate: "Wednesday",
+      image: "fullmetal_alchemist.jpg",
+    },
+    {
+      title: "Hunter X Hunter",
+      author: "Yoshihiro Togashi",
+      description:
+        "Follows the adventures of Gon Freecss, a young boy who aspires to become a Hunter—a licensed professional who specializes in fantastic pursuits such as locating rare or unidentified animal species, treasure hunting, surveying unexplored enclaves, or hunting down lawless individuals.",
+      dayupdate: "Tuesday",
+      image: "hunter_x_hunter.jpg",
+    },
+    {
+      title: "Naruto",
+      author: "Masashi Kishimoto",
+      description:
+        "Follows the journey of Naruto Uzumaki, a young ninja with dreams of becoming the strongest ninja and leader of his village.",
+      dayupdate: "Friday",
+      image: "naruto.jpg",
+    },
+    {
+      title: "One Piece",
+      author: "Eiichiro Oda",
+      description:
+        "Follows the adventures of Monkey D. Luffy and his pirate crew as they search for the legendary One Piece treasure to become the Pirate King.",
       dayupdate: "Thursday",
+      image: "one_piece.jpg",
+    },
+    {
+      title: "One Punch Man",
+      author: "ONE (story) and Yusuke Murata (art)",
+      description:
+        "Follows the story of Saitama, a hero who can defeat any opponent with a single punch, but is bored by the lack of challenge in his life.",
+      dayupdate: "Wednesday",
+      image: "one_punch_man.jpg",
     },
   ];
 
   const animeData = [
     {
-      title: "Anime Title 1",
-      author: "Author 1",
-      description: "Description for Anime 1",
+      title: "Attack on Titan",
+      author: "Hajime Isayama",
+      description:
+        "Set in a world where humanity is on the brink of extinction due to gigantic humanoid creatures known as Titans, this series follows the story of Eren Yeager and his friends as they fight against these monstrous beings.",
       dayupdate: "Thursday",
+      image: "attack_on_titan.jpg",
     },
     {
-      title: "Anime Title 2",
-      author: "Author 2",
-      description: "Description for Anime 2",
+      title: "Black Butler",
+      author: "Yana Toboso",
+      description:
+        "Follows the story of Ciel Phantomhive, a young nobleman who forms a contract with a demon named Sebastian Michaelis to seek revenge against those who wronged him.",
+      dayupdate: "Monday",
+      image: "black_butler.jpg",
+    },
+    {
+      title: "Black Clover",
+      author: "Yūki Tabata",
+      description:
+        "Set in a world where magic is everything, follows the journey of Asta, a boy born without magic, who dreams of becoming the Wizard King, the strongest mage in the Clover Kingdom.",
+      dayupdate: "Wednesday",
+      image: "black_clover.jpg",
+    },
+    {
+      title: "Detective Conan",
+      author: "Gosho Aoyama",
+      description:
+        "Follows the adventures of Shinichi Kudo, a high school detective who is transformed into a child after being poisoned by a criminal organization, and his quest to solve cases while posing as a young boy named Conan Edogawa.",
       dayupdate: "Friday",
+      image: "detective_conan.jpg",
+    },
+    {
+      title: "Death Note",
+      author: "Tsugumi Ohba (story) and Takeshi Obata (art)",
+      description:
+        "Follows the story of Light Yagami, a high school student who gains the power to kill anyone whose name he writes in a mysterious notebook, leading to a game of cat and mouse with a brilliant detective known only as L.",
+      dayupdate: "Tuesday",
+      image: "death_note.jpg",
+    },
+    {
+      title: "Dragon Ball",
+      author: "Akira Toriyama",
+      description:
+        "Follows the adventures of Goku as he trains in martial arts and searches for the Dragon Balls, powerful artifacts that can grant any wish.",
+      dayupdate: "Sunday",
+      image: "dragon_ball.jpg",
+    },
+    {
+      title: "Gintama",
+      author: "Hideaki Sorachi",
+      description:
+        "Set in an alternate late-Edo period Japan invaded by aliens, follows the adventures of Gintoki Sakata, a freelance samurai, and his companions as they take on odd jobs to make ends meet.",
+      dayupdate: "Saturday",
+      image: "gintama.jpg",
+    },
+    {
+      title: "Haikyuu!!",
+      author: "Haruichi Furudate",
+      description:
+        "Follows the journey of Shoyo Hinata, a volleyball player with a short stature but a big heart, as he aims to become a top player and lead his team to victory.",
+      dayupdate: "Monday",
+      image: "haikyuu.jpg",
+    },
+    {
+      title: "Fullmetal Alchemist",
+      author: "Hiromu Arakawa",
+      description:
+        "Set in a world where alchemy is practiced, follows the journey of two brothers, Edward and Alphonse Elric, as they search for the Philosopher's Stone to restore their bodies after a failed alchemical experiment.",
+      dayupdate: "Wednesday",
+      image: "fullmetal_alchemist.jpg",
+    },
+    {
+      title: "Hunter X Hunter",
+      author: "Yoshihiro Togashi",
+      description:
+        "Follows the adventures of Gon Freecss, a young boy who aspires to become a Hunter—a licensed professional who specializes in fantastic pursuits such as locating rare or unidentified animal species, treasure hunting, surveying unexplored enclaves, or hunting down lawless individuals.",
+      dayupdate: "Tuesday",
+      image: "hunter_x_hunter.jpg",
+    },
+    {
+      title: "Naruto",
+      author: "Masashi Kishimoto",
+      description:
+        "Follows the journey of Naruto Uzumaki, a young ninja with dreams of becoming the strongest ninja and leader of his village.",
+      dayupdate: "Friday",
+      image: "naruto.jpg",
+    },
+    {
+      title: "One Piece",
+      author: "Eiichiro Oda",
+      description:
+        "Follows the adventures of Monkey D. Luffy and his pirate crew as they search for the legendary One Piece treasure to become the Pirate King.",
+      dayupdate: "Thursday",
+      image: "one_piece.jpg",
+    },
+    {
+      title: "One Punch Man",
+      author: "ONE (story) and Yusuke Murata (art)",
+      description:
+        "Follows the story of Saitama, a hero who can defeat any opponent with a single punch, but is bored by the lack of challenge in his life.",
+      dayupdate: "Wednesday",
+      image: "one_punch_man.jpg",
     },
   ];
 
@@ -221,17 +405,26 @@ const HomePage = () => {
             sx={{ flex: 1, display: "flex", flexDirection: "column", gap: 4 }}
           >
             {/* Box 2.2.1: Social Media */}
-            <Box sx={{ display: "flex", flexDirection: "row", gap: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                gap: 2,
+                bgcolor: "#1f1f1f", // Warna latar belakang
+                borderRadius: 1, // Border radius
+                p: 1, // Padding
+              }}
+            >
               <Button
                 sx={{
+                  width: "100%", // Mengisi lebar tombol
                   position: "relative",
                   bgcolor: "#e91e63",
                   color: "#fff",
                   "&:hover": { bgcolor: "#c2185b" },
                   "&:hover .icon": { display: "inline-block" },
                   "&:hover .text": { display: "none" },
-                  borderRadius: 2,
-                  p: 1,
+                  borderRadius: 0, // Menghilangkan border radius agar tombol mengikuti border radius box
                 }}
               >
                 <Typography className="text">Instagram</Typography>
@@ -239,14 +432,14 @@ const HomePage = () => {
               </Button>
               <Button
                 sx={{
+                  width: "100%", // Mengisi lebar tombol
                   position: "relative",
                   bgcolor: "#3b5998",
                   color: "#fff",
                   "&:hover": { bgcolor: "#2a4887" },
                   "&:hover .icon": { display: "inline-block" },
                   "&:hover .text": { display: "none" },
-                  borderRadius: 2,
-                  p: 1,
+                  borderRadius: 0, // Menghilangkan border radius agar tombol mengikuti border radius box
                 }}
               >
                 <Typography className="text">Facebook</Typography>
@@ -254,14 +447,14 @@ const HomePage = () => {
               </Button>
               <Button
                 sx={{
+                  width: "100%", // Mengisi lebar tombol
                   position: "relative",
                   bgcolor: "#cddc39",
                   color: "#fff",
                   "&:hover": { bgcolor: "#afb42b" },
                   "&:hover .icon": { display: "inline-block" },
                   "&:hover .text": { display: "none" },
-                  borderRadius: 2,
-                  p: 1,
+                  borderRadius: 0, // Menghilangkan border radius agar tombol mengikuti border radius box
                 }}
               >
                 <Typography className="text">Email</Typography>
@@ -270,7 +463,14 @@ const HomePage = () => {
             </Box>
 
             {/* Box 2.2.2: Most Viewed Content */}
-            <Box>
+            <Box
+              sx={{
+                background: "linear-gradient(to bottom, #800000, #330000)",
+                // borderRadius: 4,
+                borderBottomLeftRadius: 20,
+                p: 2,
+              }}
+            >
               {/* Sub-box 2.2.2.1: Icon and Title */}
               <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
                 <WhatshotIcon sx={{ mr: 1, color: "#ff5722" }} />

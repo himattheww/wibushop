@@ -85,12 +85,12 @@ const Header = ({ handleToggleSize }) => {
             Berwibuwa
           </Typography>
           <Box sx={{ display: "flex", ml: 2 }}>
-            <Link href="/manga" underline="none">
+            <Link href="/mangalist" underline="none">
               <Typography variant="h6" sx={{ color: "#ff4081", ml: 2 }}>
                 Daftar Manga
               </Typography>
             </Link>
-            <Link href="/anime" underline="none">
+            <Link href="/animelist" underline="none">
               <Typography variant="h6" sx={{ color: "#ff4081", ml: 2 }}>
                 Daftar Anime
               </Typography>

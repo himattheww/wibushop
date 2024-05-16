@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage";
 import HomePage from "./Pages/HomePage/HomePage";
 import Register from "./Pages/Register";
-import Manga from "./Pages/Manga/Manga";
-import Anime from "./Pages/Anime/Anime";
+import MangaList from "./Pages/Manga/MangaList";
+import AnimeList from "./Pages/Anime/AnimeList";
 
 function App() {
   return (
@@ -19,8 +19,18 @@ function App() {
             name="Register Page"
             element={<Register />}
           />
-          <Route exact path="/manga" name="Manga Page" element={<Manga />} />
-          <Route exact path="/manga" name="Manga Page" element={<Anime />} />
+          <Route
+            exact
+            path="/mangalist"
+            name="Manga Page"
+            element={<MangaList />}
+          />
+          <Route
+            exact
+            path="/animelist"
+            name="Anime Page"
+            element={<AnimeList />}
+          />
         </Routes>
       </Router>
     </div>

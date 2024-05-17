@@ -1,3 +1,23 @@
+import AOT from "../../Assets/Anime and Manga Cover/Shingeki_no_Kyojin.jpg";
+import Kuroshitsuji from "../../Assets/Anime and Manga Cover/Black_Butler_1.png";
+import BlackClover from "../../Assets/Anime and Manga Cover/black clover.jpg";
+import Bleach1 from "../../Assets/Anime and Manga Cover/bleach.webp";
+import Bleach2 from "../../Assets/Anime and Manga Cover/bleachh.jpg";
+import Deathnote1 from "../../Assets/Anime and Manga Cover/death note.jpg";
+import Deathnote2 from "../../Assets/Anime and Manga Cover/Death_Note_29.webp";
+import DetectiveConan1 from "../../Assets/Anime and Manga Cover/detective conan manga.jpg";
+import DetectiveConan2 from "../../Assets/Anime and Manga Cover/detective conan.jpg";
+import DragonBall1 from "../../Assets/Anime and Manga Cover/dragon ball super.jpg";
+import DragonBall2 from "../../Assets/Anime and Manga Cover/dragon ball.jpeg";
+import FullMetalAlchemist1 from "../../Assets/Anime and Manga Cover/fullmetalalchemist.jpg";
+import FullMetalAlchemist2 from "../../Assets/Anime and Manga Cover/fullmetalalchemist2.jpg";
+import Gintama from "../../Assets/Anime and Manga Cover/gintama.jpg";
+import Haikyuu from "../../Assets/Anime and Manga Cover/haikyuu.jpg";
+import HunterxHunter from "../../Assets/Anime and Manga Cover/hunter x hunter.jpeg";
+import Naruto from "../../Assets/Anime and Manga Cover/naruto.jpg";
+import OnePiece from "../../Assets/Anime and Manga Cover/one piece.jpg";
+import OnePunchman from "../../Assets/Anime and Manga Cover/OnePunchMan_manga_cover.png";
+
 const mangaData = [
   {
     title: "Attack on Titan",
@@ -5,7 +25,8 @@ const mangaData = [
     description:
       "Set in a world where humanity is on the brink of extinction due to gigantic humanoid creatures known as Titans, this series follows the story of Eren Yeager and his friends as they fight against these monstrous beings.",
     dayupdate: "Thursday",
-    image: "attack_on_titan.jpg",
+    image: AOT,
+    link: "/manga/aot",
   },
   {
     title: "Black Butler",
@@ -13,7 +34,8 @@ const mangaData = [
     description:
       "Follows the story of Ciel Phantomhive, a young nobleman who forms a contract with a demon named Sebastian Michaelis to seek revenge against those who wronged him.",
     dayupdate: "Monday",
-    image: "black_butler.jpg",
+    image: Kuroshitsuji,
+    link: "/manga/blackbutler",
   },
   {
     title: "Black Clover",
@@ -21,7 +43,8 @@ const mangaData = [
     description:
       "Set in a world where magic is everything, follows the journey of Asta, a boy born without magic, who dreams of becoming the Wizard King, the strongest mage in the Clover Kingdom.",
     dayupdate: "Wednesday",
-    image: "black_clover.jpg",
+    image: BlackClover,
+    link: "/manga/blackclover",
   },
   {
     title: "Detective Conan",
@@ -29,7 +52,8 @@ const mangaData = [
     description:
       "Follows the adventures of Shinichi Kudo, a high school detective who is transformed into a child after being poisoned by a criminal organization, and his quest to solve cases while posing as a young boy named Conan Edogawa.",
     dayupdate: "Friday",
-    image: "detective_conan.jpg",
+    image: DetectiveConan2,
+    link: "/manga/detectiveconan",
   },
   {
     title: "Death Note",
@@ -37,7 +61,8 @@ const mangaData = [
     description:
       "Follows the story of Light Yagami, a high school student who gains the power to kill anyone whose name he writes in a mysterious notebook, leading to a game of cat and mouse with a brilliant detective known only as L.",
     dayupdate: "Tuesday",
-    image: "death_note.jpg",
+    image: Deathnote2,
+    link: "/manga/deathnote",
   },
   {
     title: "Dragon Ball",
@@ -45,7 +70,8 @@ const mangaData = [
     description:
       "Follows the adventures of Goku as he trains in martial arts and searches for the Dragon Balls, powerful artifacts that can grant any wish.",
     dayupdate: "Sunday",
-    image: "dragon_ball.jpg",
+    image: DragonBall1,
+    link: "/manga/dragonball",
   },
   {
     title: "Gintama",
@@ -53,7 +79,8 @@ const mangaData = [
     description:
       "Set in an alternate late-Edo period Japan invaded by aliens, follows the adventures of Gintoki Sakata, a freelance samurai, and his companions as they take on odd jobs to make ends meet.",
     dayupdate: "Saturday",
-    image: "gintama.jpg",
+    image: Gintama,
+    link: "/manga/gintama",
   },
   {
     title: "Haikyuu!!",
@@ -61,7 +88,8 @@ const mangaData = [
     description:
       "Follows the journey of Shoyo Hinata, a volleyball player with a short stature but a big heart, as he aims to become a top player and lead his team to victory.",
     dayupdate: "Monday",
-    image: "haikyuu.jpg",
+    image: Haikyuu,
+    link: "/manga/haikyuu",
   },
   {
     title: "Fullmetal Alchemist",
@@ -69,7 +97,8 @@ const mangaData = [
     description:
       "Set in a world where alchemy is practiced, follows the journey of two brothers, Edward and Alphonse Elric, as they search for the Philosopher's Stone to restore their bodies after a failed alchemical experiment.",
     dayupdate: "Wednesday",
-    image: "fullmetal_alchemist.jpg",
+    image: FullMetalAlchemist1,
+    link: "/manga/fullmetalalchemist",
   },
   {
     title: "Hunter X Hunter",
@@ -77,7 +106,8 @@ const mangaData = [
     description:
       "Follows the adventures of Gon Freecss, a young boy who aspires to become a Hunter—a licensed professional who specializes in fantastic pursuits such as locating rare or unidentified animal species, treasure hunting, surveying unexplored enclaves, or hunting down lawless individuals.",
     dayupdate: "Tuesday",
-    image: "hunter_x_hunter.jpg",
+    image: HunterxHunter,
+    link: "/manga/hunterxhunter",
   },
   {
     title: "Naruto",
@@ -85,7 +115,8 @@ const mangaData = [
     description:
       "Follows the journey of Naruto Uzumaki, a young ninja with dreams of becoming the strongest ninja and leader of his village.",
     dayupdate: "Friday",
-    image: "naruto.jpg",
+    image: Naruto,
+    link: "/manga/naruto",
   },
   {
     title: "One Piece",
@@ -93,7 +124,8 @@ const mangaData = [
     description:
       "Follows the adventures of Monkey D. Luffy and his pirate crew as they search for the legendary One Piece treasure to become the Pirate King.",
     dayupdate: "Thursday",
-    image: "one_piece.jpg",
+    image: OnePiece,
+    link: "/manga/onepiece",
   },
   {
     title: "One Punch Man",
@@ -101,7 +133,8 @@ const mangaData = [
     description:
       "Follows the story of Saitama, a hero who can defeat any opponent with a single punch, but is bored by the lack of challenge in his life.",
     dayupdate: "Wednesday",
-    image: "one_punch_man.jpg",
+    image: OnePunchman,
+    link: "/manga/onepunchman",
   },
 ];
 
@@ -112,7 +145,8 @@ const animeData = [
     description:
       "Set in a world where humanity is on the brink of extinction due to gigantic humanoid creatures known as Titans, this series follows the story of Eren Yeager and his friends as they fight against these monstrous beings.",
     dayupdate: "Thursday",
-    image: "attack_on_titan.jpg",
+    image: AOT,
+    link: "/anime/aot",
   },
   {
     title: "Black Butler",
@@ -120,7 +154,8 @@ const animeData = [
     description:
       "Follows the story of Ciel Phantomhive, a young nobleman who forms a contract with a demon named Sebastian Michaelis to seek revenge against those who wronged him.",
     dayupdate: "Monday",
-    image: "black_butler.jpg",
+    image: Kuroshitsuji,
+    link: "/anime/blackbutler",
   },
   {
     title: "Black Clover",
@@ -128,7 +163,8 @@ const animeData = [
     description:
       "Set in a world where magic is everything, follows the journey of Asta, a boy born without magic, who dreams of becoming the Wizard King, the strongest mage in the Clover Kingdom.",
     dayupdate: "Wednesday",
-    image: "black_clover.jpg",
+    image: BlackClover,
+    link: "/anime/blackclover",
   },
   {
     title: "Detective Conan",
@@ -136,7 +172,9 @@ const animeData = [
     description:
       "Follows the adventures of Shinichi Kudo, a high school detective who is transformed into a child after being poisoned by a criminal organization, and his quest to solve cases while posing as a young boy named Conan Edogawa.",
     dayupdate: "Friday",
-    image: "detective_conan.jpg",
+
+    image: DetectiveConan2,
+    link: "/anime/detectiveconan",
   },
   {
     title: "Death Note",
@@ -144,7 +182,8 @@ const animeData = [
     description:
       "Follows the story of Light Yagami, a high school student who gains the power to kill anyone whose name he writes in a mysterious notebook, leading to a game of cat and mouse with a brilliant detective known only as L.",
     dayupdate: "Tuesday",
-    image: "death_note.jpg",
+    image: Deathnote2,
+    link: "/anime/deathnote",
   },
   {
     title: "Dragon Ball",
@@ -152,7 +191,8 @@ const animeData = [
     description:
       "Follows the adventures of Goku as he trains in martial arts and searches for the Dragon Balls, powerful artifacts that can grant any wish.",
     dayupdate: "Sunday",
-    image: "dragon_ball.jpg",
+    image: DragonBall1,
+    link: "/anime/dragonball",
   },
   {
     title: "Gintama",
@@ -160,7 +200,8 @@ const animeData = [
     description:
       "Set in an alternate late-Edo period Japan invaded by aliens, follows the adventures of Gintoki Sakata, a freelance samurai, and his companions as they take on odd jobs to make ends meet.",
     dayupdate: "Saturday",
-    image: "gintama.jpg",
+    image: Gintama,
+    link: "/anime/gintama",
   },
   {
     title: "Haikyuu!!",
@@ -168,7 +209,8 @@ const animeData = [
     description:
       "Follows the journey of Shoyo Hinata, a volleyball player with a short stature but a big heart, as he aims to become a top player and lead his team to victory.",
     dayupdate: "Monday",
-    image: "haikyuu.jpg",
+    image: Haikyuu,
+    link: "/anime/haikyuu",
   },
   {
     title: "Fullmetal Alchemist",
@@ -176,7 +218,8 @@ const animeData = [
     description:
       "Set in a world where alchemy is practiced, follows the journey of two brothers, Edward and Alphonse Elric, as they search for the Philosopher's Stone to restore their bodies after a failed alchemical experiment.",
     dayupdate: "Wednesday",
-    image: "fullmetal_alchemist.jpg",
+    image: FullMetalAlchemist1,
+    link: "/anime/fullmetalalchemist",
   },
   {
     title: "Hunter X Hunter",
@@ -184,7 +227,8 @@ const animeData = [
     description:
       "Follows the adventures of Gon Freecss, a young boy who aspires to become a Hunter—a licensed professional who specializes in fantastic pursuits such as locating rare or unidentified animal species, treasure hunting, surveying unexplored enclaves, or hunting down lawless individuals.",
     dayupdate: "Tuesday",
-    image: "hunter_x_hunter.jpg",
+    image: HunterxHunter,
+    link: "/anime/hunterxhunter",
   },
   {
     title: "Naruto",
@@ -192,7 +236,8 @@ const animeData = [
     description:
       "Follows the journey of Naruto Uzumaki, a young ninja with dreams of becoming the strongest ninja and leader of his village.",
     dayupdate: "Friday",
-    image: "naruto.jpg",
+    image: Naruto,
+    link: "/anime/naruto",
   },
   {
     title: "One Piece",
@@ -200,7 +245,8 @@ const animeData = [
     description:
       "Follows the adventures of Monkey D. Luffy and his pirate crew as they search for the legendary One Piece treasure to become the Pirate King.",
     dayupdate: "Thursday",
-    image: "one_piece.jpg",
+    image: OnePiece,
+    link: "/anime/onepiece",
   },
   {
     title: "One Punch Man",
@@ -208,7 +254,8 @@ const animeData = [
     description:
       "Follows the story of Saitama, a hero who can defeat any opponent with a single punch, but is bored by the lack of challenge in his life.",
     dayupdate: "Wednesday",
-    image: "one_punch_man.jpg",
+    image: OnePunchman,
+    link: "/anime/onepunchman",
   },
 ];
 

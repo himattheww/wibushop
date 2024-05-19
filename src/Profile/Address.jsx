@@ -6,6 +6,7 @@ import {
   Divider,
   TextField,
   IconButton,
+  Tooltip,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -16,8 +17,10 @@ const Address = () => {
   const [newAddress, setNewAddress] = useState("");
 
   const handleAddAddress = () => {
-    setAddresses([...addresses, newAddress]);
-    setNewAddress("");
+    if (newAddress.trim() !== "") {
+      setAddresses([...addresses, newAddress.trim()]);
+      setNewAddress("");
+    }
   };
 
   const handleAddressChange = (event) => {
@@ -48,15 +51,27 @@ const Address = () => {
         <Typography variant="h6">Daftar Alamat</Typography>
         <Divider sx={{ my: 2 }} />
         {addresses.map((address, index) => (
-          <Paper key={index} sx={{ p: 2, mb: 2, position: "relative" }}>
+          <Paper
+            key={index}
+            sx={{
+              p: 2,
+              mb: 2,
+              position: "relative",
+              backgroundColor: "#f0f0f0",
+              borderRadius: "8px",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+            }}
+          >
             <Typography>{address}</Typography>
-            <IconButton
-              aria-label="Hapus Alamat"
-              onClick={() => handleDeleteAddress(index)}
-              sx={{ position: "absolute", top: 0, right: 0 }}
-            >
-              <DeleteIcon />
-            </IconButton>
+            <Tooltip title="Hapus Alamat" arrow>
+              <IconButton
+                aria-label="Hapus Alamat"
+                onClick={() => handleDeleteAddress(index)}
+                sx={{ position: "absolute", top: 0, right: 0 }}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </Tooltip>
           </Paper>
         ))}
         <Box display="flex" alignItems="center">
@@ -72,6 +87,7 @@ const Address = () => {
             color="primary"
             aria-label="Tambah Alamat"
             onClick={handleAddAddress}
+            disabled={newAddress.trim() === ""}
           >
             <AddIcon />
           </IconButton>

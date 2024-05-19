@@ -194,6 +194,9 @@ const Header = ({ handleToggleSize }) => {
             }}
           >
             <MenuItem
+            // buat comoponent = {Link untuk menandakan dia Link}
+              component={Link}
+              href="/profile"
               onClick={handleMenuClose}
               sx={{
                 "&:hover": {

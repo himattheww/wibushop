@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  Paper,
-  Tabs,
-  Tab,
-  Avatar,
-  Divider,
-  Button,
-} from "@mui/material";
+import { Box, Paper, Tabs, Tab } from "@mui/material";
 import Header from "../Components/Header";
 import Biodata from "./Biodata";
 import Address from "./Address";
+import AccountBank from "./AccountBank";
+
 
 const Profile = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -49,27 +42,12 @@ const Profile = () => {
             >
               <Tab label="Biodata Diri" />
               <Tab label="Daftar Alamat" />
-              <Tab label="Pembayaran" />
               <Tab label="Rekening Bank" />
             </Tabs>
           </Paper>
-          {tabIndex === 0 && (
-            <Biodata/>
-          )}
-          {tabIndex === 1 && (
-          <Address/>
-
-          )}
-          {tabIndex === 2 && (
-            <Box p={2}>
-              <Typography>Pembayaran</Typography>
-            </Box>
-          )}
-          {tabIndex === 3 && (
-            <Box p={2}>
-              <Typography>Rekening Bank</Typography>
-            </Box>
-          )}
+          {tabIndex === 0 && <Biodata />}
+          {tabIndex === 1 && <Address />}
+          {tabIndex === 2 && <AccountBank />}
         </Box>
       </Box>
     </>

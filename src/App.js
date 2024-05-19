@@ -5,6 +5,8 @@ import HomePage from "./Pages/HomePage/HomePage";
 import Register from "./Pages/Register";
 import MangaList from "./Pages/Manga/MangaList";
 import AnimeList from "./Pages/Anime/AnimeList";
+import MangaDetail from "./Pages/Anime/Anime List/Bleach/Bleach";
+import Profile from "./Profile/Profile";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" name="Login Page" element={<LoginPage />} />
+          <Route exact path="/profile" name="Profile" element={<Profile/>} />
+
           <Route exact path="/home" name="Home Page" element={<HomePage />} />
           <Route
             exact
@@ -30,6 +34,12 @@ function App() {
             path="/animelist"
             name="Anime Page"
             element={<AnimeList />}
+          />
+          <Route
+            exact
+            path="/bleach"
+            name="Anime Page"
+            element={<MangaDetail />}
           />
         </Routes>
       </Router>

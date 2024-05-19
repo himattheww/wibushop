@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import Header from "../Components/Header";
 import Biodata from "./Biodata";
+import Address from "./Address";
 
 const Profile = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -56,9 +57,8 @@ const Profile = () => {
             <Biodata/>
           )}
           {tabIndex === 1 && (
-            <Box p={2}>
-              <Typography>Daftar Alamat</Typography>
-            </Box>
+          <Address/>
+
           )}
           {tabIndex === 2 && (
             <Box p={2}>

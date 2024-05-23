@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+  CardMedia,
+} from "@mui/material";
 import { aniMangaList } from "./Data";
 
 const Animangaupdate = () => {
@@ -36,6 +43,8 @@ const Animangaupdate = () => {
               fontWeight: "bold",
               color: "#FFFF",
               backgroundColor: "#00796b",
+              padding: "8px",
+              borderRadius: "4px",
             }}
           >
             Pembaharuan Harian Manga
@@ -46,14 +55,26 @@ const Animangaupdate = () => {
                 <Grid item xs={6} md={4} key={index}>
                   <Card
                     sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
                       "&:hover": { boxShadow: 6, bgcolor: "#e0f7fa" },
-                      backgroundImage: `url(${manga.backgroundImage})`, // Menambahkan latar belakang gambar
+                      backgroundImage: `url(${manga.backgroundImage})`,
                       backgroundSize: "cover",
-                      color: "#000", // Warna teks
-                      cursor: "pointer", // Mengubah cursor saat hover
+                      color: "#000",
+                      cursor: "pointer",
                     }}
                   >
-                    <CardContent>
+                    <CardMedia
+                      component="img"
+                      height="250"
+                      image={manga.image}
+                      alt={manga.title}
+                      sx={{
+                        objectFit: "cover",
+                      }}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
                       <Typography
                         variant="h5"
                         sx={{
@@ -63,7 +84,7 @@ const Animangaupdate = () => {
                       >
                         {manga.title}
                       </Typography>
-                      <Typography variant="body2">
+                      <Typography variant="body2" sx={{ mt: 1 }}>
                         {manga.description}
                       </Typography>
                     </CardContent>
@@ -87,6 +108,8 @@ const Animangaupdate = () => {
               fontWeight: "bold",
               color: "#000",
               backgroundColor: "#f57c00",
+              padding: "8px",
+              borderRadius: "4px",
             }}
           >
             Pembaharuan Harian Anime
@@ -97,14 +120,26 @@ const Animangaupdate = () => {
                 <Grid item xs={6} md={4} key={index}>
                   <Card
                     sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
                       "&:hover": { boxShadow: 6, bgcolor: "#ffecb3" },
-                      backgroundImage: `url(${anime.backgroundImage})`, // Menambahkan latar belakang gambar
+                      backgroundImage: `url(${anime.backgroundImage})`,
                       backgroundSize: "cover",
-                      color: "#000", // Warna teks
-                      cursor: "pointer", // Mengubah cursor saat hover
+                      color: "#000",
+                      cursor: "pointer",
                     }}
                   >
-                    <CardContent>
+                    <CardMedia
+                      component="img"
+                      height="250"
+                      image={anime.image}
+                      alt={anime.title}
+                      sx={{
+                        objectFit: "cover",
+                      }}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
                       <Typography
                         variant="h5"
                         sx={{
@@ -114,7 +149,7 @@ const Animangaupdate = () => {
                       >
                         {anime.title}
                       </Typography>
-                      <Typography variant="body2">
+                      <Typography variant="body2" sx={{ mt: 1 }}>
                         {anime.description}
                       </Typography>
                     </CardContent>

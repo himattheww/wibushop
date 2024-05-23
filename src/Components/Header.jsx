@@ -11,11 +11,7 @@ import {
   Link,
   Box,
 } from "@mui/material";
-import {
-  Search as SearchIcon,
-  AccountCircle,
-  Menu as MenuIcon,
-} from "@mui/icons-material";
+import { Search as SearchIcon, AccountCircle } from "@mui/icons-material";
 import Swal from "sweetalert2";
 import logoWibushop from "../Assets/Logo/logo2.webp";
 
@@ -28,10 +24,6 @@ const Header = ({ handleToggleSize }) => {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
-  };
-
-  const handleMenuClick = () => {
-    handleToggleSize();
   };
 
   const handleDownloadClick = () => {

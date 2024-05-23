@@ -8,14 +8,13 @@ import {
   CardContent,
   CardMedia,
 } from "@mui/material";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { aniMangaList } from "../../../HomePage/Data";
 import Header from "../../../../Components/Header";
 import Daftarisi from "./Daftarisi";
 
 const MangaDetail = () => {
   const { mangaId } = useParams();
-  const navigate = useNavigate();
 
   // Ensure aniMangaList and mangaData are defined
   if (!aniMangaList || !aniMangaList.mangaData) {

@@ -5,12 +5,9 @@ import {
   CardContent,
   Grid,
   Typography,
-  Button,
 } from "@mui/material";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import EmailIcon from "@mui/icons-material/Email";
 import WhatshotIcon from "@mui/icons-material/Whatshot"; // Mengganti VisibilityIcon dengan WhatshotIcon
+import SocialButtons from "./SocialMedia";
 
 const SideContent = () => {
   const mostViewedContent = Array.from({ length: 10 }, (_, index) => ({
@@ -23,62 +20,76 @@ const SideContent = () => {
       {/* Box 2.2: Side Content */}
       <Box sx={{ flex: 1, display: "flex", flexDirection: "column", gap: 4 }}>
         {/* Box 2.2.1: Social Media */}
-        <Box
+
+        {/* <Box
           sx={{
             display: "flex",
             flexDirection: "row",
             gap: 2,
-            bgcolor: "#1f1f1f", // Warna latar belakang
-            borderRadius: 1, // Border radius
-            p: 1, // Padding
+            bgcolor: "#1f1f1f",
+            borderRadius: 1,
+            p: 1,
           }}
         >
           <Button
             sx={{
-              width: "100%", // Mengisi lebar tombol
-              position: "relative",
+              flex: 1, // Membuat tombol menempati ruang yang sama
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
               bgcolor: "#e91e63",
               color: "#fff",
+              p: 2,
+              borderRadius: 1,
+              transition: "background-color 0.3s",
               "&:hover": { bgcolor: "#c2185b" },
-              "&:hover .icon": { display: "inline-block" },
-              "&:hover .text": { display: "none" },
-              borderRadius: 0, // Menghilangkan border radius agar tombol mengikuti border radius box
+              textTransform: "none", // Membuat teks tombol tidak semua huruf besar
             }}
           >
-            <Typography className="text">Instagram</Typography>
-            <InstagramIcon className="icon" sx={{ display: "none" }} />
+            <InstagramIcon sx={{ mr: 1 }} />
+            <Typography variant="button">Instagram</Typography>
           </Button>
           <Button
             sx={{
-              width: "100%", // Mengisi lebar tombol
-              position: "relative",
+              flex: 1,
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
               bgcolor: "#3b5998",
               color: "#fff",
+              p: 2,
+              borderRadius: 1,
+              transition: "background-color 0.3s",
               "&:hover": { bgcolor: "#2a4887" },
-              "&:hover .icon": { display: "inline-block" },
-              "&:hover .text": { display: "none" },
-              borderRadius: 0, // Menghilangkan border radius agar tombol mengikuti border radius box
+              textTransform: "none",
             }}
           >
-            <Typography className="text">Facebook</Typography>
-            <FacebookIcon className="icon" sx={{ display: "none" }} />
+            <FacebookIcon sx={{ mr: 1 }} />
+            <Typography variant="button">Facebook</Typography>
           </Button>
           <Button
             sx={{
-              width: "100%", // Mengisi lebar tombol
-              position: "relative",
+              flex: 1,
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
               bgcolor: "#cddc39",
               color: "#fff",
+              p: 2,
+              borderRadius: 1,
+              transition: "background-color 0.3s",
               "&:hover": { bgcolor: "#afb42b" },
-              "&:hover .icon": { display: "inline-block" },
-              "&:hover .text": { display: "none" },
-              borderRadius: 0, // Menghilangkan border radius agar tombol mengikuti border radius box
+              textTransform: "none",
             }}
           >
-            <Typography className="text">Email</Typography>
-            <EmailIcon className="icon" sx={{ display: "none" }} />
+            <EmailIcon sx={{ mr: 1 }} />
+            <Typography variant="button">Email</Typography>
           </Button>
-        </Box>
+        </Box> */}
+        <SocialButtons/>
 
         {/* Box 2.2.2: Most Viewed Content */}
         <Box

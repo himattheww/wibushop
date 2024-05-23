@@ -32,34 +32,54 @@ const AccountBank = () => {
   };
 
   const handleSaveBank = () => {
-    // Check if bank name and account number are not empty
     if (selectedBank && accountNumber) {
-      // Add new bank account to the list
       setBankAccounts([
         ...bankAccounts,
         { bankName: selectedBank, accountNumber: accountNumber },
       ]);
-      // Clear form fields
       setSelectedBank("");
       setAccountNumber("");
-      // Hide add bank form
       setShowAddBankForm(false);
     } else {
-      // Show error message if bank name or account number is empty
       alert("Please select a bank and enter account number.");
     }
   };
 
+  const bankNames = [
+    "Bank Mandiri",
+    "Bank Central Asia (BCA)",
+    "Bank Rakyat Indonesia (BRI)",
+    "Bank Negara Indonesia (BNI)",
+    "Bank CIMB Niaga",
+    "Bank Danamon",
+    "Bank Tabungan Negara (BTN)",
+    "Bank Permata",
+    "Bank Syariah Mandiri",
+    "Bank Mega",
+    "Bank Panin",
+    "Bank OCBC NISP",
+    "Bank Maybank Indonesia",
+    "Bank Bukopin",
+    "Bank BTN Syariah",
+    "Bank Victoria Internasional",
+    "Bank BTPN",
+    "Bank Sinarmas",
+    "Bank Jatim",
+    "Bank DKI",
+  ];
+
   return (
     <>
       <Box p={2}>
-        <Typography variant="h5">Rekening Bank</Typography>
+        <Typography variant="h4" gutterBottom>
+          Rekening Bank
+        </Typography>
         {showAddBankForm ? (
-          <Paper sx={{ p: 2, mt: 2, position: "relative" }}>
+          <Paper sx={{ p: 3, mt: 3, position: "relative", borderRadius: 2, boxShadow: 3 }}>
             <Typography variant="h6">Mau tambah rekening apa?</Typography>
             <IconButton
               aria-label="Close"
-              sx={{ position: "absolute", top: 0, right: 0 }}
+              sx={{ position: "absolute", top: 8, right: 8 }}
               onClick={() => setShowAddBankForm(false)}
             >
               <CloseIcon />
@@ -68,12 +88,17 @@ const AccountBank = () => {
               fullWidth
               value={selectedBank}
               onChange={handleBankSelectChange}
-              sx={{ mt: 2 }}
+              displayEmpty
+              sx={{ mt: 3, mb: 2 }}
             >
-              <MenuItem value="">Pilih Bank</MenuItem>
-              <MenuItem value="Bank A">Bank A</MenuItem>
-              <MenuItem value="Bank B">Bank B</MenuItem>
-              {/* Add more banks as needed */}
+              <MenuItem value="" disabled>
+                Pilih Bank
+              </MenuItem>
+              {bankNames.map((bankName) => (
+                <MenuItem key={bankName} value={bankName}>
+                  {bankName}
+                </MenuItem>
+              ))}
             </Select>
             <TextField
               fullWidth
@@ -81,13 +106,12 @@ const AccountBank = () => {
               variant="outlined"
               value={accountNumber}
               onChange={handleAccountNumberChange}
-              sx={{ mt: 2 }}
+              sx={{ mb: 3 }}
             />
             <Button
               variant="contained"
               color="primary"
               onClick={handleSaveBank}
-              sx={{ mt: 2 }}
             >
               Tambah Rekening
             </Button>
@@ -96,20 +120,19 @@ const AccountBank = () => {
           <Tooltip title="Tambahkan Rekening Lain" arrow>
             <IconButton
               onClick={handleAddBank}
-              sx={{ mt: 2, color: "primary" }}
+              sx={{ mt: 2, color: "primary.main" }}
             >
               <AddCircleIcon fontSize="large" />
             </IconButton>
           </Tooltip>
         )}
-        {/* Display existing bank accounts */}
         {bankAccounts.map((account, index) => (
-          <Paper key={index} sx={{ p: 2, mt: 2 }}>
+          <Paper key={index} sx={{ p: 2, mt: 2, borderRadius: 2, boxShadow: 1 }}>
             <Typography variant="subtitle1">
-              Nama Bank: {account.bankName}
+              <strong>Nama Bank:</strong> {account.bankName}
             </Typography>
             <Typography variant="subtitle1">
-              Nomor Rekening: {account.accountNumber}
+              <strong>Nomor Rekening:</strong> {account.accountNumber}
             </Typography>
           </Paper>
         ))}
